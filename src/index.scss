@@ -1,0 +1,30 @@
+@import './style/utility/Variable.scss';
+@import './style/utility/Mixins.scss';
+@import './style/utility/Animations.scss';
+
+@import './includes.scss';
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+html{
+    font-size:62.5%; // 1rem=16px,10/16 *100= 62.5 1rem=10px
+}
+body{
+    
+    background-color:$color-primary-light;
+
+    
+    font-family:'Grandstander',cursive ;
+    font-size:1.6rem ;
+    font-weight:400 ;
+    
+    min-height: 100vh;
+    max-width:100vw;
+    
+    
+    
+}

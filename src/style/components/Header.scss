@@ -1,0 +1,31 @@
+.header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background-color:$color-primary-dark;
+    padding:2rem;
+
+    &__list {
+        display:flex;
+        align-items: center;
+        width:45%;
+        justify-content: space-around;
+        list-style:none;
+        & li{
+            display: flex;
+            flex-direction: column;
+            align-items:center;
+        }
+    }
+}
+
+.logo{
+    max-width: 6rem;
+    height: auto;
+}
+
+.icon{
+    color:$color-icon;
+   
+}
+
