@@ -8,13 +8,13 @@
 *::after{
     margin:0;
     padding:0;
-    box-sizing:border-box;
+    box-sizing:inherit;
 }
 html{
     font-size:62.5%; // 1rem=16px,10/16 *100= 62.5 1rem=10px
 }
 body{
-    
+    box-sizing:border-box;
     background-color:$color-primary-light;
 
     
@@ -22,8 +22,6 @@ body{
     font-size:1.6rem ;
     font-weight:400 ;
     
-    min-height: 100vh;
-    max-width:100vw;
     
     
     

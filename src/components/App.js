@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import Main from "./Main";
-import Task from "./Task";
+import GroupTask from "./GroupTask";
 const App = () => {
   return (
     <section className="app">
@@ -10,7 +10,7 @@ const App = () => {
       </header>
       <main className="main">
         <Main />
-        <Task />
+        <GroupTask />
       </main>
     </section>
   );

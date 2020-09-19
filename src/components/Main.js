@@ -1,18 +1,19 @@
 import React from "react";
-import AddCircleIcon from "@material-ui/icons/AddCircle";
 
 const Main = () => {
   return (
     <form action="" className="form-main">
-    <input
-        type="text"
-        name="input"
-        placeholder="Task you want to complete"
-        className="input"
-    />
-    <button name="task"className="btn">
-        <AddCircleIcon className="icon"/>
-    </button>
+      <div className="form-main__div">
+        <input
+          type="text"
+          name="input"
+          placeholder="Task you want to complete"
+          className="input"
+        />
+        <button name="task" className="btn">
+          Add
+        </button>
+      </div>
     </form>
   );
 };

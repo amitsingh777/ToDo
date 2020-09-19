@@ -1,0 +1,44 @@
+.task{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    background-color: $color-task-background;
+    width:55vw;
+    margin-top:1rem;
+    padding:2rem;
+    border-radius:5rem 5rem 5rem 0;
+    box-shadow: 0.2rem 0.2rem 0.5rem 0.2rem rgba(0,0,0,0.2);
+    &__main{
+        display:flex;
+        justify-content: space-around;
+        align-items: center;
+        width:30%;
+    }
+    &__check{
+        height:2rem;
+        width:auto;
+        
+    }
+}
+
+.button{
+    display: inline-block;
+    border:none;
+    cursor: pointer;
+    background:transparent;
+    &:focus{
+        outline:none
+    }
+    
+    &--delete{
+        
+        color:red;
+        
+    }
+    
+    &--edit{
+       
+        color:green;
+        margin-right:2rem;
+    }
+}
