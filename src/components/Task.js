@@ -6,7 +6,9 @@ const Task = () => {
   return (
     <li className="task">
       <div className="task__main">
-        <input type="checkbox" name="task-check" className="task__check" />
+        <div className="task__check">
+          <input type="checkbox" name="task-check" className="checkBox" />
+        </div>
         <p className="task__text">Balayam</p>
       </div>
       <div className="task__button">
