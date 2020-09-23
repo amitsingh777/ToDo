@@ -16,7 +16,7 @@ const Task = (props) => {
   const [afterEditBox, setAfterEditBox] = useState("");
   const [afterEditBoxPara, setAfterEditBoxPara] = useState("");
   const myRef = useRef(null);
- 
+
   useEffect(() => {
     myRef.current.checked = checked;
   }, [checked]);
@@ -61,7 +61,11 @@ const Task = (props) => {
             onChange={(e) => {
               setEditTitle(e.target.value);
             }}
-            onKeyPress={(e)=>{if(e.key.toLowerCase() === 'enter'){e.preventDefault()}}}
+            onKeyPress={(e) => {
+              if (e.key.toLowerCase() === "enter") {
+                e.preventDefault();
+              }
+            }}
             className="after-edit-input"
           />
           <span className="after-edit-buttons">
@@ -118,7 +122,6 @@ const Task = (props) => {
   );
 };
 const mapStateToProps = (state) => {
-  console.log(state);
   return { state };
 };
 export default connect(mapStateToProps, { deleteTask, editTask, checkTask })(
