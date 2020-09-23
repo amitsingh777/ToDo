@@ -12,10 +12,16 @@
     width: 45%;
     justify-content: space-around;
     list-style: none;
+
     & li {
       display: flex;
       flex-direction: column;
       align-items: center;
+      cursor:pointer;
+      transition: transform 0.2s;
+      &:hover{
+        @include translateScale;
+      }
     }
   }
 }
@@ -23,8 +29,14 @@
 .logo {
   max-width: 6rem;
   height: auto;
+  transition: transform 0.2s;
+  &:hover{
+  
+    @include translateScale;
+  }
 }
 
 .icon {
   color: $color-icon;
+  
 }

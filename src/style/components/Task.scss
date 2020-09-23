@@ -4,47 +4,126 @@
   align-items: center;
   background-color: $color-task-background;
   width: 55vw;
+  min-width: 5rem;
   margin-top: 1rem;
   padding: 2rem;
   border-radius: 1rem 1rem 1rem 1rem;
   box-shadow: 0.2rem 0.2rem 0.5rem 0.2rem rgba(0, 0, 0, 0.2);
+
   &__main {
+    width: 80%;
+    position: relative;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 30%;
   }
   &__check {
+    
+    cursor: pointer;
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    transition:transform 0.2s;
+    &:hover{
+      @include translateScale;
+    }
+  }
+  &__check::after {
+    content: "";
+    position: absolute;
     height: 2rem;
-    width:2rem;
-    // border-radius:1rem;
+    width: 2rem;
+    border-radius: 0.4rem;
     background-color: $color-icon;
   }
+  &__check:checked::before {
+    content: "";
+    z-index: 999;
+    height: 0.8rem;
+    width: 1.3rem;
+    top: 0.3rem;
+    transform: rotate(-50deg);
+    left: 0.4rem;
+    border: 0.3rem solid $color-primary-light;
+    border-top: none;
+    border-right: none;
+    position: absolute;
+  }
+  &__check:checked + p,&__check:checked + p > input  {
+    text-decoration: line-through;
+    color: $color-icon-opacity;
+  }
+
   &__text {
     color: $color-icon;
+    margin-left: 3rem;
   }
 }
-checkBox {
-//   height: 2rem;
-//   width:2rem;
-  background-color: transparent;
-}
 
-.button {
+.button,
+.after-edit-btn {
   display: inline-block;
   border: none;
   cursor: pointer;
   background: transparent;
+  transition: transform 0.2s;
   &:focus {
     outline: none;
   }
 
   &--delete {
-    color: red;
+    color: $color-icon-tertiary;
   }
 
   &--edit {
-    color: green;
+    color: $color-icon-secondary;
     margin-right: 2rem;
   }
+}
+
+.button:hover,
+.after-edit-btn:hover {
+  // transform: scale(1.1) translateY(-0.5rem);
+  @include translateScale
+}
+/*Used after Edit is clicked*/
+.hide {
+  visibility: hidden;
+  display: none;
+}
+
+.after-edit-done-btn {
+  color: $color-icon-secondary;
+  margin-right: 2rem;
+}
+.after-edit-close-btn {
+  color: $color-icon-tertiary;
+}
+
+.after-edit-input {
+  color: $color-icon;
+  font-family: "Grandstander", cursive;
+  font-size: 1.6rem;
+  width:85%;
+  font-weight: 400;
+  letter-spacing: 0.2rem;
+  background-color: $color-task-background;
+  border: 1px solid $color-icon;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  &:focus {
+    outline: none;
+  }
+}
+.after-edit-box {
+  width: 100%;
+  &-para {
+    display:flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+.after-edit-buttons{
+  display:inline-block;
 }
