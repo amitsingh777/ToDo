@@ -1,20 +1,23 @@
 import { combineReducers } from "redux";
 
-const clearAll=(tasks)=>{
+const clearAll = (tasks) => {
   return [];
-}
+};
 
-const edit=(tasks,action)=>{
+const edit = (tasks, action) => {
   return tasks.map((task) => {
     if (task.id === action.payload.id) {
-      return { title: action.payload.title, id: action.payload.id ,checked:action.payload.isChecked};
+      return {
+        title: action.payload.title,
+        id: action.payload.id,
+        checked: action.payload.isChecked,
+      };
     }
     return task;
   });
-}
+};
 
 const taskReducer = (tasks = [], action) => {
-  
   switch (action.type) {
     case "DELETE_TASK":
       return tasks.filter((task) => task.id !== action.payload.id);
@@ -28,7 +31,7 @@ const taskReducer = (tasks = [], action) => {
         },
       ];
     case "EDIT_TASK":
-      return edit(tasks,action);
+      return edit(tasks, action);
     case "COMPLETE_TASK":
       return tasks.map((task) => {
         if (task.id === action.payload.id) {
@@ -57,12 +60,34 @@ const completeTaskReducer = (completeTask = [], action) => {
     case "ICON_CLICK_ALL":
       return [...action.payload.tasks];
     case "CLEAR_ALL":
-      return clearAll(action.payload.tasks); 
+      return clearAll(action.payload.tasks);
     case "EDIT_TASK":
-      return edit(completeTask,action);
-    default :
+      return edit(completeTask, action);
+    case "COMPLETE_TASK":
+      return completeTask.map((task) => {
+        if (task.id === action.payload.id) {
+          return {
+            id: action.payload.id,
+            title: action.payload.title,
+            checked: action.payload.isChecked,
+          };
+        }
+        return task;
+      });
+    case "DELETE_TASK":
+      return completeTask.filter((task) => task.id !== action.payload.id);
+    case "ADD_TASK":
+      return [
+        ...completeTask,
+        {
+          id: action.payload.id,
+          title: action.payload.title,
+          checked: action.payload.isChecked,
+        },
+      ];
+    default:
       return completeTask;
   }
 };
 
-export default combineReducers({ taskReducer,completeTaskReducer });
+export default combineReducers({ taskReducer, completeTaskReducer });
