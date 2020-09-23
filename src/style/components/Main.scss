@@ -1,68 +1,63 @@
-.form-main{
-    align-self:center;  
-    &__div{
-        position: relative; 
-        display:inline-block;
-        border-radius:5rem 5rem 5rem 0;
-        transition:all 0.2s;
-        
-        &:hover{
-            box-shadow:0rem 1rem 1rem 0.1rem rgba(0,0,0,0.2);
-            transform:translateY(-0.5rem);
-        }
+.form-main {
+  align-self: center;
+  &__div {
+    position: relative;
+    display: inline-block;
+    border-radius: 5rem 5rem 5rem 0;
+    transition: all 0.2s;
+
+    &:hover {
+      box-shadow: 0rem 1rem 1rem 0.1rem rgba(0, 0, 0, 0.2);
+      transform: translateY(-0.5rem);
     }
+  }
 }
-.input{
-    height:5rem;
-    width:60vw;
-    font-family:'Granstander',cursive;
+.input {
+  height: 5rem;
+  width: 60vw;
+  font-family: "Grandstander", cursive;
+  font-weight: 200;
+  letter-spacing: 0.2rem;
+  padding-left: 1rem;
+  border: none;
+  background-color: $color-icon;
+  border-radius: 5rem 5rem 5rem 0;
+  color: $color-text;
+
+  overflow: hidden;
+  &::placeholder {
+    color: $color-text;
+    padding-left: 1rem;
+    font-family: "Grandstander", cursive;
     font-weight: 200;
     letter-spacing: 0.2rem;
-    padding-left:1rem;
-    border:none;
-    background-color:$color-icon;
-    border-radius:5rem 5rem 5rem 0;
-    color:$color-text;
-   
-    overflow: hidden;
-    &::placeholder{
-        color:$color-text;
-        padding-left:1rem;
-        font-family:'Granstander',cursive;
-        font-weight: 200;
-        letter-spacing: 0.2rem;
-    }
-    &:focus{
-        outline:none;
-    }
-    //860px
-    @media only screen and (max-width:53.75em){
-        width:80vw;
-    }
-    //700px
-    @media only screen and (max-width:43.75em){
-        width:95vw;
-        
-    }
-    
-   
-    
+  }
+  &:focus {
+    outline: none;
+  }
+  //860px
+  @media only screen and (max-width: 53.75em) {
+    width: 80vw;
+  }
+  //700px
+  @media only screen and (max-width: 43.75em) {
+    width: 95vw;
+  }
 }
 
-.btn{
-    position:absolute;
-    font-family:'Granstander',cursive;
-    font-weight: 200;
-    height:5rem;
-    width:10rem;
-    border-style: none;
-    border-radius:0 15rem 15rem 0;
-    right: -0.1rem;
-    
-    background-color:$color-secondary-background;
-    overflow: hidden;
-    &:focus{
-        outline: none;
-    }
-   
+.btn {
+  position: absolute;
+  font-family: "Granstander", cursive;
+  font-weight: 200;
+  height: 5rem;
+  width: 10rem;
+  border-style: none;
+  border-radius: 0 15rem 15rem 0;
+  right: -0.1rem;
+
+  background-color: $color-secondary-background;
+  overflow: hidden;
+  &:focus {
+    outline: none;
+  }
 }
