@@ -4,8 +4,7 @@
   align-items: center;
   background-color: $color-task-background;
   width: 55vw;
-  min-width: 5rem;
-  margin-top: 1rem;
+  margin-top: 3rem;
   padding: 2rem;
   border-radius: 1rem 1rem 1rem 1rem;
   box-shadow: 0.2rem 0.2rem 0.5rem 0.2rem rgba(0, 0, 0, 0.2);
@@ -18,13 +17,12 @@
     align-items: center;
   }
   &__check {
-    
     cursor: pointer;
     position: absolute;
     top: 0rem;
     left: 0rem;
-    transition:transform 0.2s;
-    &:hover{
+    transition: transform 0.2s;
+    &:hover {
       @include translateScale;
     }
   }
@@ -49,7 +47,8 @@
     border-right: none;
     position: absolute;
   }
-  &__check:checked + p,&__check:checked + p > input  {
+  &__check:checked + p,
+  &__check:checked + p > input {
     text-decoration: line-through;
     color: $color-icon-opacity;
   }
@@ -58,6 +57,23 @@
     color: $color-icon;
     margin-left: 3rem;
   }
+  @media only screen and (max-width:62.5em){
+    width:75vw;
+  }
+  @media only screen and (max-width:50em){
+    width:80vw;
+    margin-top:2.5rem;
+  }
+  @media only screen and (max-width:43.75em){
+    width:85vw;
+    margin-top:2rem;
+  }
+  @media only screen and (max-width:37.5em){
+    width:95vw;
+    margin-top:1.5rem;
+  
+  }
+
 }
 
 .button,
@@ -84,7 +100,7 @@
 .button:hover,
 .after-edit-btn:hover {
   // transform: scale(1.1) translateY(-0.5rem);
-  @include translateScale
+  @include translateScale;
 }
 /*Used after Edit is clicked*/
 .hide {
@@ -104,7 +120,7 @@
   color: $color-icon;
   font-family: "Grandstander", cursive;
   font-size: 1.6rem;
-  width:85%;
+  width: 85%;
   font-weight: 400;
   letter-spacing: 0.2rem;
   background-color: $color-task-background;
@@ -119,11 +135,11 @@
 .after-edit-box {
   width: 100%;
   &-para {
-    display:flex;
+    display: flex;
     width: 100%;
     justify-content: space-between;
   }
 }
-.after-edit-buttons{
-  display:inline-block;
+.after-edit-buttons {
+  display: inline-block;
 }

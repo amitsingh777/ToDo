@@ -1,8 +1,14 @@
 .group{
-    padding-top:6rem;
-    width:55vw;
+    display:flex;
+    justify-content: center;
+    padding-top:4rem;
+    width:100%;
+
     font-size:2rem;
     &__list{
         list-style:none;
+    }
+    @media only screen and (max-width:37.5em){
+        padding-top:2rem;
     }
 }
