@@ -4,6 +4,15 @@ const clearAll=(tasks)=>{
   return [];
 }
 
+const edit=(tasks,action)=>{
+  return tasks.map((task) => {
+    if (task.id === action.payload.id) {
+      return { title: action.payload.title, id: action.payload.id ,checked:action.payload.isChecked};
+    }
+    return task;
+  });
+}
+
 const taskReducer = (tasks = [], action) => {
   
   switch (action.type) {
@@ -19,13 +28,7 @@ const taskReducer = (tasks = [], action) => {
         },
       ];
     case "EDIT_TASK":
-      console.log(action.payload.title,action.payload.id,action.payload.isChecked)
-      return tasks.map((task) => {
-        if (task.id === action.payload.id) {
-          return { title: action.payload.title, id: action.payload.id ,checked:action.payload.isChecked};
-        }
-        return task;
-      });
+      return edit(tasks,action);
     case "COMPLETE_TASK":
       return tasks.map((task) => {
         if (task.id === action.payload.id) {
@@ -56,13 +59,7 @@ const completeTaskReducer = (completeTask = [], action) => {
     case "CLEAR_ALL":
       return clearAll(action.payload.tasks); 
     case "EDIT_TASK":
-      console.log(action.payload.title,action.payload.id,action.payload.isChecked)
-      return completeTask.map((task) => {
-        if (task.id === action.payload.id) {
-          return { title: action.payload.title, id: action.payload.id ,checked:action.payload.isChecked};
-        }
-        return task;
-      });
+      return edit(completeTask,action);
     default :
       return completeTask;
   }

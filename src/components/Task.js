@@ -9,7 +9,7 @@ import { connect } from "react-redux";
 import { deleteTask, editTask, checkTask } from "../action";
 
 const Task = (props) => {
-  const { title, deleteTask, editTask, id, state, checkTask, checked } = props;
+  const { title, deleteTask, editTask, id, checkTask, checked } = props;
   const [editTitle, setEditTitle] = useState(title);
   const [edit, setEdit] = useState(false);
   const [hide, setHide] = useState("");
@@ -108,7 +108,6 @@ const Task = (props) => {
   );
 };
 const mapStateToProps = (state) => {
-  console.log(state)
   return { state };
 };
 export default connect(mapStateToProps, { deleteTask, editTask, checkTask })(

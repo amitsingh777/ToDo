@@ -21,7 +21,8 @@ const Header = (props) => {
     let completedTasks = props.taskReducer.filter(
       (task) => task.checked === true
     );
-    props.iconClickComplete(completedTasks);
+      props.iconClickComplete(completedTasks);
+   
     
   };
   const onInCompleteClick = () => {
