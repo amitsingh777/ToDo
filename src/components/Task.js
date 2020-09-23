@@ -13,9 +13,10 @@ const Task = (props) => {
   const [editTitle, setEditTitle] = useState(title);
   const [edit, setEdit] = useState(false);
   const [hide, setHide] = useState("");
-  const [afterEditBox,setAfterEditBox]=useState("");
-  const [afterEditBoxPara,setAfterEditBoxPara]=useState("");
+  const [afterEditBox, setAfterEditBox] = useState("");
+  const [afterEditBoxPara, setAfterEditBoxPara] = useState("");
   const myRef = useRef(null);
+ 
   useEffect(() => {
     myRef.current.checked = checked;
   }, [checked]);
@@ -26,29 +27,29 @@ const Task = (props) => {
   };
   const onButtonClickEdit = (e) => {
     e.preventDefault();
+
     setEdit(true);
-    setHide('hide');
-    setAfterEditBox('after-edit-box');
-    setAfterEditBoxPara('after-edit-box-para')
+    setHide("hide");
+    setAfterEditBox("after-edit-box");
+    setAfterEditBoxPara("after-edit-box-para");
   };
-  const onDoneClick=(e)=>{
+  const onDoneClick = (e) => {
     e.preventDefault();
-    editTask(id,editTitle,checked);
+
+    editTask(id, editTitle, checked);
     setEdit(false);
-    setHide('');
-    setAfterEditBoxPara('');
-    setAfterEditBox('');
-  }
-  const onCloseClick=(e)=>{
+    setHide("");
+    setAfterEditBoxPara("");
+    setAfterEditBox("");
+  };
+  const onCloseClick = (e) => {
     e.preventDefault();
     // editTask()
     setEdit(false);
-    setHide('');
-    setAfterEditBoxPara('');
-    setAfterEditBox('');
-    
-
-  }
+    setHide("");
+    setAfterEditBoxPara("");
+    setAfterEditBox("");
+  };
   const input = () => {
     if (edit) {
       return (
@@ -57,16 +58,25 @@ const Task = (props) => {
             type="text"
             name="text"
             value={editTitle}
-            onChange={(e) => setEditTitle(e.target.value)}
+            onChange={(e) => {
+              setEditTitle(e.target.value);
+            }}
+            onKeyPress={(e)=>{if(e.key.toLowerCase() === 'enter'){e.preventDefault()}}}
             className="after-edit-input"
           />
           <span className="after-edit-buttons">
-          <button className="after-edit-btn after-edit-done-btn" onClick={onDoneClick}>
-          <DoneIcon style={{ fontSize: "2.5rem" }} />
-          </button>
-          <button className="after-edit-btn after-edit-close-btn" onClick={onCloseClick}>
-          <CloseIcon style={{ fontSize: "2.5rem" }} />
-          </button>
+            <button
+              className="after-edit-btn after-edit-done-btn"
+              onClick={onDoneClick}
+            >
+              <DoneIcon style={{ fontSize: "2.5rem" }} />
+            </button>
+            <button
+              className="after-edit-btn after-edit-close-btn"
+              onClick={onCloseClick}
+            >
+              <CloseIcon style={{ fontSize: "2.5rem" }} />
+            </button>
           </span>
         </React.Fragment>
       );
@@ -108,6 +118,7 @@ const Task = (props) => {
   );
 };
 const mapStateToProps = (state) => {
+  console.log(state);
   return { state };
 };
 export default connect(mapStateToProps, { deleteTask, editTask, checkTask })(
