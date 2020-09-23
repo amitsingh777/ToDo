@@ -56,6 +56,9 @@
   &__text {
     color: $color-icon;
     margin-left: 3rem;
+    @media only screen and (max-width:37.5em){
+      margin-left:2.5rem;
+    }
   }
   @media only screen and (max-width:62.5em){
     width:75vw;
@@ -94,6 +97,9 @@
   &--edit {
     color: $color-icon-secondary;
     margin-right: 2rem;
+    @media only screen and (max-width:37.5em){
+      margin-right: 1rem;
+    }
   }
 }
 
@@ -130,6 +136,9 @@
   border-left: none;
   &:focus {
     outline: none;
+  }
+  @media only screen and (max-width:28.125em){
+    width:50vw;
   }
 }
 .after-edit-box {
