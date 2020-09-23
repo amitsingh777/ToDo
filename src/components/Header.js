@@ -36,6 +36,7 @@ const Header = (props) => {
   };
   const onClearClick = () => {
     props.clearAll(props.taskReducer);
+    // props.clearAll([]);
   };
   return (
     <div className="header">

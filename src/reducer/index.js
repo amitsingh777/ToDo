@@ -16,8 +16,13 @@ const edit = (tasks, action) => {
     return task;
   });
 };
-
-const taskReducer = (tasks = [], action) => {
+let preTasks = [
+  { id: 1000, title: "Exercise for 10mins", checked: false },
+  { id: 1001, title: "Coding for atleast 1min", checked: true },
+  { id: 1002, title: "Sleep in day for atleast 2hr", checked: false },
+  { id: 1003, title: "Walk in the night after dinner", checked: true },
+];
+const taskReducer = (tasks =preTasks, action) => {
   switch (action.type) {
     case "DELETE_TASK":
       return tasks.filter((task) => task.id !== action.payload.id);
@@ -85,6 +90,7 @@ const completeTaskReducer = (completeTask = [], action) => {
           checked: action.payload.isChecked,
         },
       ];
+
     default:
       return completeTask;
   }
