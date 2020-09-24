@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { addTask } from "../action";
+import { addTask,iconClickAll } from "../action";
 
 class Main extends React.Component {
   state = { id: 0, title: "" };
@@ -9,7 +9,12 @@ class Main extends React.Component {
   onFormSubmit = (e) => {
     e.preventDefault();
     let useID = this.state.id;
+    if(this.props.tasks.length !== 0){
+      this.props.iconClickAll(this.props.tasks);
+    }
     this.props.addTask(this.state.id, this.state.title);
+   
+
     this.setState({ id: ++useID });
     this.setState({ title: "" });
   };
@@ -39,4 +44,4 @@ class Main extends React.Component {
 const mapStateToProps = (state) => {
   return { tasks: state.taskReducer };
 };
-export default connect(mapStateToProps, { addTask })(Main);
+export default connect(mapStateToProps, { addTask, iconClickAll })(Main);

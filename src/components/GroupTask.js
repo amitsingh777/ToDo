@@ -17,6 +17,7 @@ class GroupTask extends React.Component {
         );
       });
     } else {
+    
       return this.props.headerTasks.map((task) => {
         return (
           <Task
@@ -38,7 +39,6 @@ class GroupTask extends React.Component {
   }
 }
 const mapStateToProps = (state) => {
-
   return {
     tasks: state.taskReducer,
     headerTasks: state.completeTaskReducer,

@@ -23,6 +23,9 @@ const Task = (props) => {
 
   const onButtonClickDelete = (e) => {
     e.preventDefault();
+    // let realArray=JSON.parse(localStorage.getItem('tasks'));
+    // let localStorageArray=realArray.filter(task=>task.id !==id);
+    // localStorage.setItem('tasks',JSON.stringify(localStorage));
     deleteTask(id);
   };
   const onButtonClickEdit = (e) => {

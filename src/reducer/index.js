@@ -16,6 +16,31 @@ const edit = (tasks, action) => {
     return task;
   });
 };
+const complete_Task = (completeTask, action) => {
+  return completeTask.map((task) => {
+    if (task.id === action.payload.id) {
+      return {
+        id: action.payload.id,
+        title: action.payload.title,
+        checked: action.payload.isChecked,
+      };
+    }
+    return task;
+  });
+};
+const addTask=(tasks,action)=>{
+  return [
+    ...tasks,
+    {
+      id: action.payload.id,
+      title: action.payload.title,
+      checked: action.payload.isChecked,
+    },
+  ];
+}
+const deleteTask=(tasks,action)=>{
+  return tasks.filter((task) => task.id !== action.payload.id);
+}
 let preTasks = [
   { id: 1000, title: "Exercise for 10mins", checked: false },
   { id: 1001, title: "Coding for atleast 1min", checked: true },
@@ -25,29 +50,13 @@ let preTasks = [
 const taskReducer = (tasks =preTasks, action) => {
   switch (action.type) {
     case "DELETE_TASK":
-      return tasks.filter((task) => task.id !== action.payload.id);
+      return deleteTask(tasks,action);
     case "ADD_TASK":
-      return [
-        ...tasks,
-        {
-          id: action.payload.id,
-          title: action.payload.title,
-          checked: action.payload.isChecked,
-        },
-      ];
+      return addTask(tasks,action);
     case "EDIT_TASK":
       return edit(tasks, action);
     case "COMPLETE_TASK":
-      return tasks.map((task) => {
-        if (task.id === action.payload.id) {
-          return {
-            id: action.payload.id,
-            title: action.payload.title,
-            checked: action.payload.isChecked,
-          };
-        }
-        return task;
-      });
+      return complete_Task(tasks, action);
     case "CLEAR_ALL":
       return clearAll(action.payload.tasks);
 
@@ -69,27 +78,11 @@ const completeTaskReducer = (completeTask = [], action) => {
     case "EDIT_TASK":
       return edit(completeTask, action);
     case "COMPLETE_TASK":
-      return completeTask.map((task) => {
-        if (task.id === action.payload.id) {
-          return {
-            id: action.payload.id,
-            title: action.payload.title,
-            checked: action.payload.isChecked,
-          };
-        }
-        return task;
-      });
+      return complete_Task(completeTask, action);
     case "DELETE_TASK":
-      return completeTask.filter((task) => task.id !== action.payload.id);
+      return deleteTask(completeTask,action);
     case "ADD_TASK":
-      return [
-        ...completeTask,
-        {
-          id: action.payload.id,
-          title: action.payload.title,
-          checked: action.payload.isChecked,
-        },
-      ];
+      return addTask(completeTask,action);
 
     default:
       return completeTask;
